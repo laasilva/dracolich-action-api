@@ -104,7 +104,17 @@ jobs:
           distribution: 'temurin'
           server-id: github
           settings-path: ${{ github.workspace }}
-      
+      - name: Configure Maven for GitHub Packages
+        run: |
+          echo "<settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ secrets.GITHUB_TOKEN }}</password>
+              </server>
+            </servers>
+          </settings>" > $GITHUB_WORKSPACE/settings.xml
       - name: Extract version from tag
         id: version
         run: |
