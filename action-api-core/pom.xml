@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>dm.dracolich</groupId>
+        <artifactId>action-api</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>action-api-core</artifactId>
+
+    <name>action-api-core</name>
+    <description>action-api-core</description>
+
+    <properties>
+        <roller.version>0.0.3</roller.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>dm.dracolich.forge</groupId>
+            <artifactId>roller</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+    </dependencies>
+</project>
