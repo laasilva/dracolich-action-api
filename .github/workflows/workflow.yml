@@ -141,7 +141,7 @@ jobs:
           echo "Building version: $VERSION"
 
       - name: Build with Maven
-        run: mvn -B package --file pom.xml -Drevision=${{ steps.version.outputs.version }}
+        run: mvn -B package --file pom.xml -s $GITHUB_WORKSPACE/settings.xml -Drevision=${{ steps.version.outputs.version }}
 
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml -Drevision=${{ steps.version.outputs.version }}
