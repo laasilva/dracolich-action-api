@@ -30,6 +30,13 @@
         </repository>
     </distributionManagement>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/laasilva/dracolich-forge</url>
+        </repository>
+    </repositories>
+
     <properties>
         <java.version>25</java.version>
         <revision>0.0.1</revision>
