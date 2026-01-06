@@ -15,14 +15,14 @@
     <description>action-api-core</description>
 
     <properties>
-        <roller.version>0.0.3</roller.version>
+        <roller.version>3.3.0</roller.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>dm.dracolich.forge</groupId>
             <artifactId>roller</artifactId>
-            <version>1.1.0</version>
+            <version>${roller.version}</version>
         </dependency>
     </dependencies>
 </project>
