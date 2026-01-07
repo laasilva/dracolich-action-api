@@ -28,7 +28,7 @@ public class Subclass {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "subclass_name")
+    @Column(name = "subclass_name", unique = true)
     private String name;
 
     @Column(name = "subclass_description", columnDefinition = "TEXT")

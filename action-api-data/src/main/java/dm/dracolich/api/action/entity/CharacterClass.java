@@ -24,7 +24,7 @@ public class CharacterClass {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "class_name")
+    @Column(name = "class_name", unique = true)
     private String className;
 
     @OneToMany(mappedBy = "characterClass", cascade = CascadeType.ALL, orphanRemoval = true)
