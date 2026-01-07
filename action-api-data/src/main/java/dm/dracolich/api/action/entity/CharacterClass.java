@@ -27,7 +27,9 @@ public class CharacterClass {
     @Column(name = "class_name")
     private String className;
 
-    // TODO: ADD SUBCLASSES AND ALIGNMENTS?? FORGOT THE WORD (check bg3 character creation lol)
+    @OneToMany(mappedBy = "characterClass", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private Set<Subclass> subclasses = new HashSet<>();
 
     @Column(name = "background")
     private String background; // character background - different for each class

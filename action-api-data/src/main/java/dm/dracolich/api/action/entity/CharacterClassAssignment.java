@@ -29,6 +29,10 @@ public class CharacterClassAssignment {
     @JoinColumn(name = "class_id")
     private CharacterClass characterClass;
 
+    @ManyToOne
+    @JoinColumn(name = "subclass_id")
+    private Subclass subclass; // optional - chosen at specific level (usually 3)
+
     @Column(name = "level")
     private Integer level;
 }
