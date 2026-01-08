@@ -22,9 +22,12 @@ public class Attribute {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "attribute_name")
+    @Column(name = "attribute_name", nullable = false, unique = true)
     private String attributeName;
 
+    @Column(name = "attribute_type")
+    private AbilityType attributeType;
+
     @Column(name = "attribute_points")
-    private Integer attributePoints;
+    private Integer attributePoints; // how many points are added to the attribute
 }

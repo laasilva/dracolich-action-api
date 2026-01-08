@@ -24,5 +24,10 @@
             <artifactId>roller</artifactId>
             <version>${roller.version}</version>
         </dependency>
+        <dependency>
+            <groupId>dm.dracolich</groupId>
+            <artifactId>action-api-data</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -25,7 +25,7 @@ public class Race {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "race_name")
+    @Column(name = "race_name", unique = true)
     private String raceName;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -36,4 +36,12 @@ public class Race {
     )
     @Builder.Default
     private Set<Attribute> attributes = new HashSet<>();
+
+
+    @OneToMany(mappedBy = "race", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private Set<RaceAbilityAssignment> raceAbilities = new HashSet<>();
+
+    @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean custom;
 }

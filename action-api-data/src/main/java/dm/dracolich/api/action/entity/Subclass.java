@@ -47,4 +47,7 @@ public class Subclass {
     @Builder.Default
     private Set<Attribute> attributes = new HashSet<>();
 
+    @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean custom;
+
 }

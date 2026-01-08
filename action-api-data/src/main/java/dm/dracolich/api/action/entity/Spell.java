@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "spell")
+@Table(name = "spells")
 @Data
 @Builder
 @AllArgsConstructor

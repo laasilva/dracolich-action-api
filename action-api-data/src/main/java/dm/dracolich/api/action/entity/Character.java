@@ -27,8 +27,8 @@ public class Character {
     @Column(name = "character_name")
     private String name;
 
-    @Column(name = "playable")
-    private Boolean playable;
+    @Column(name = "character_type")
+    private CharacterType characterType;
 
     @Column(name = "level")
     private Integer level; // current character level

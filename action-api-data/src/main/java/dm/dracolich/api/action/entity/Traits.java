@@ -22,7 +22,7 @@ public class Traits {
     private String id;
 
     @OneToOne
-    @JoinColumn(name = "alignment_id")
+    @JoinColumn(name = "alignment_id", unique = true)
     private Alignment alignment;
 
     @Column

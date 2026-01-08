@@ -1,6 +1,6 @@
 package dm.dracolich.api.action.entity;
 
-public enum SpellcastingClass {
+public enum SpellcastingClassType {
     ARTIFICER("ARTIFICER", "HALF"),
     BARD("BARD", "FULL"),
     CLERIC("CLERIC", "FULL"),
@@ -15,7 +15,7 @@ public enum SpellcastingClass {
     private String name;
     private String type;
 
-    SpellcastingClass(String name, String type) {
+    SpellcastingClassType(String name, String type) {
         this.name = name;
         this.type = type;
     }

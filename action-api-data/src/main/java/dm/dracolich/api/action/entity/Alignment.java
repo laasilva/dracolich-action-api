@@ -25,4 +25,7 @@ public class Alignment {
 
     @Column(name = "alignment_name")
     private String alignmentName;
+
+    @Column(name = "alignment_description")
+    private String alignmentDescription;
 }

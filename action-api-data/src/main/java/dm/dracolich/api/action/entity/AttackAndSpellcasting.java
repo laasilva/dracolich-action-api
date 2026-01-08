@@ -20,7 +20,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AttackAndSpellCasting {
+public class AttackAndSpellcasting {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

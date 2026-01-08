@@ -15,9 +15,13 @@ public class Spellcasting {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @OneToOne
+    @JoinColumn(name = "spell_id")
+    private Spell spell;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "spellcasting_class")
-    private SpellcastingClass spellCastingClass;
+    private SpellcastingClassType spellCastingClassType;
 
     @Column(name = "spellcasting_ability")
     private String spellCastingAbility; // the ability used to cast spells - intelligence, wisdom, or charisma

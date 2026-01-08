@@ -14,23 +14,17 @@ import lombok.Getter;
  */
 @Getter
 public enum DamageType {
-    FIRE("FIRE"),
-    ACID("ACID"),
-    BLUDGEONING("BLUDGEONING"),
-    COLD("COLD"),
-    FORCE("FORCE"),
-    LIGHTNING("LIGHTNING"),
-    NECROTIC("NECROTIC"),
-    PIERCING("PIERCING"),
-    POISON("POISON"),
-    PSYCHIC("PSYCHIC"),
-    RADIANT("RADIANT"),
-    SLASHING("SLASHING"),
-    THUNDER("THUNDER");
-
-    private String name;
-
-    DamageType(String name) {
-        this.name = name;
-    }
+    FIRE,
+    ACID,
+    BLUDGEONING,
+    COLD,
+    FORCE,
+    LIGHTNING,
+    NECROTIC,
+    PIERCING,
+    POISON,
+    PSYCHIC,
+    RADIANT,
+    SLASHING,
+    THUNDER;
 }
