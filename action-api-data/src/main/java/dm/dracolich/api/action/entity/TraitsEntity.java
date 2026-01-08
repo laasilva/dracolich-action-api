@@ -21,10 +21,6 @@ public class Traits {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @OneToOne
-    @JoinColumn(name = "alignment_id", unique = true)
-    private Alignment alignment;
-
     @Column
     private String age;
 

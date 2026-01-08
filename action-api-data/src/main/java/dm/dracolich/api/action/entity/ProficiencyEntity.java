@@ -23,10 +23,7 @@ public class Proficiency {
     private String id;
 
     @Column(name = "proficiency_name")
-    private String proficiencyName;
-
-    @Column(name = "proficiency_description")
-    private String proficiencyDescription;
+    private AbilityType proficiencyName;
 
     @Column(name = "proficiency_bonus")
     private Integer proficiencyBonus;

@@ -43,6 +43,9 @@ public class CharacterClass {
     @Builder.Default
     private Set<Attribute> attributes = new HashSet<>();
 
+    @Column(name = "hit_dice")
+    private DiceType hitDice; // dice to be rolled for hit points
+
     @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean custom;
 

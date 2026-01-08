@@ -38,6 +38,10 @@ public class Character {
     private Set<CharacterClassAssignment> classAssignments = new HashSet<>();
 
     @OneToOne
+    @JoinColumn(name = "alignment_id")
+    private Alignment alignment;
+
+    @OneToOne
     @JoinColumn(name = "trait_id")
     private Traits traits; // character personality traits
 
@@ -57,11 +61,7 @@ public class Character {
     private Abilities abilities;
 
     @OneToOne
-    @JoinColumn(name = "saving_throw_id")
-    private Abilities savingThrows;
-
-    @OneToOne
-    @JoinColumn(name = "proficiency_id")
+    @JoinColumn(name = "skills_id")
     private Skills skills;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -71,10 +71,10 @@ public class Character {
             inverseJoinColumns = @JoinColumn(name = "proficiency_id")
     )
     @Builder.Default
-    private Set<Proficiency> otherProficiencies = new HashSet<>(); // optional, if character has other proficiencies or speaks any languages
+    private Set<Proficiency> proficiencies = new HashSet<>();
 
-    @Column(name = "hit_dice")
-    private Integer hitDice; // dice to be rolled for hit points
+    @Column(name = "other_proficiencies", columnDefinition = "TEXT")
+    private String otherProficiencies;
 
     @Column(name = "hit_points")
     private Integer hitPoints; // current hit points
@@ -86,16 +86,16 @@ public class Character {
      * if 3 failures, character DEATH is permanent!
      */
     @Column(name = "death_saves_successes")
-    private String deathSavesSuccesses;
+    private Integer deathSavesSuccesses;
 
     @Column(name = "death_saves_failures")
-    private String deathSavesFailures;
+    private Integer deathSavesFailures;
 
     @Column(name = "inspiration")
     private Boolean inspiration; // can be used for advantage rolls or give it to other characters
 
-    @Column(name = "proficiency_bonus")
-    private Integer proficiencyBonus; // total proficiency bonus
+    @Column(name = "armor_proficiency")
+    private ArmorType armorProficiency; // armor proficiency
 
     @Column(name = "armor_class")
     private Integer armorClass; // total armor class

@@ -32,17 +32,26 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "equipment_name")
+    @Column(name = "equipment_name", unique = true)
     private String equipmentName;
-
-    @Column(name = "armor_class")
-    private Integer armorClass;
 
     @Column(name = "equipment_type")
     private String equipmentType;
 
-    @Column(name = "stealth_advantage")
-    private Boolean stealthAdvantage;
+    @Column(name = "armor_type")
+    private ArmorType armorType;
+
+    @Column(name = "ability_type")
+    private AbilityType abilityType;
+
+    @Column(name = "ability_bonus")
+    private Integer abilityBonus;
+
+    @Column(name = "skill_type")
+    private SkillType skillType;
+
+    @Column(name = "skill_bonus")
+    private Integer skillBonus;
 
     @Column(name = "equipment_value")
     private String equipmentDescription;
