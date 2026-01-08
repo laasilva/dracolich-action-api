@@ -16,19 +16,19 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Traits {
+public class TraitsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column
-    private String age;
+    private Integer age;
 
     @Column
-    private String height;
+    private Double height;
 
     @Column
-    private String weight;
+    private Double weight;
 
     @Column(name = "eye_color")
     private String eyeColor;

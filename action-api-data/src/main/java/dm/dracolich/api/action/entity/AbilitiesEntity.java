@@ -17,7 +17,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Abilities {
+public class AbilitiesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

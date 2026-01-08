@@ -17,13 +17,13 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Proficiency {
+public class ProficiencyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(name = "proficiency_name")
-    private AbilityType proficiencyName;
+    private AbilityTypeEntityEnum proficiencyName;
 
     @Column(name = "proficiency_bonus")
     private Integer proficiencyBonus;

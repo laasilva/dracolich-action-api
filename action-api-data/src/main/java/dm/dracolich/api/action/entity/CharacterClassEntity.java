@@ -14,12 +14,14 @@ import java.util.Set;
  * </p>
  */
 @Entity
-@Table(name = "classes")
+@Table(name = "classes", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "class_name")
+})
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CharacterClass {
+public class CharacterClassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -29,9 +31,9 @@ public class CharacterClass {
 
     @OneToMany(mappedBy = "characterClass", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    private Set<Subclass> subclasses = new HashSet<>();
+    private Set<SubclassEntity> subclasses = new HashSet<>();
 
-    @Column(name = "background")
+    @Column(name = "background", columnDefinition = "TEXT")
     private String background; // character background - different for each class
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -41,10 +43,11 @@ public class CharacterClass {
             inverseJoinColumns = @JoinColumn(name = "attribute_id")
     )
     @Builder.Default
-    private Set<Attribute> attributes = new HashSet<>();
+    private Set<AttributeEntity> attributes = new HashSet<>();
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "hit_dice")
-    private DiceType hitDice; // dice to be rolled for hit points
+    private DiceTypeEntityEnum hitDice; // dice to be rolled for hit points
 
     @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean custom;

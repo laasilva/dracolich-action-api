@@ -19,7 +19,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Character {
+public class CharacterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -28,41 +28,41 @@ public class Character {
     private String name;
 
     @Column(name = "character_type")
-    private CharacterType characterType;
+    private CharacterTypeEntityEnum characterType;
 
     @Column(name = "level")
     private Integer level; // current character level
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    private Set<CharacterClassAssignment> classAssignments = new HashSet<>();
+    private Set<CharacterClassAssignmentEntity> classAssignments = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "alignment_id")
-    private Alignment alignment;
+    private AlignmentEntity alignment;
 
     @OneToOne
     @JoinColumn(name = "trait_id")
-    private Traits traits; // character personality traits
+    private TraitsEntity traits; // character personality traits
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "primary_race_id", nullable = false)
-    private Race primaryRace;
+    private RaceEntity primaryRace;
 
     @ManyToOne  // optional (for half-breeds)
     @JoinColumn(name = "secondary_race_id")
-    private Race secondaryRace;
+    private RaceEntity secondaryRace;
 
     @Column(name = "xp_points")
     private Integer xpPoints; // total experience points
 
     @OneToOne
     @JoinColumn(name = "ability_id")
-    private Abilities abilities;
+    private AbilitiesEntity abilities;
 
     @OneToOne
     @JoinColumn(name = "skills_id")
-    private Skills skills;
+    private SkillsEntity skills;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(
@@ -71,7 +71,7 @@ public class Character {
             inverseJoinColumns = @JoinColumn(name = "proficiency_id")
     )
     @Builder.Default
-    private Set<Proficiency> proficiencies = new HashSet<>();
+    private Set<ProficiencyEntity> proficiencies = new HashSet<>();
 
     @Column(name = "other_proficiencies", columnDefinition = "TEXT")
     private String otherProficiencies;
@@ -95,7 +95,7 @@ public class Character {
     private Boolean inspiration; // can be used for advantage rolls or give it to other characters
 
     @Column(name = "armor_proficiency")
-    private ArmorType armorProficiency; // armor proficiency
+    private ArmorTypeEntityEnum armorProficiency; // armor proficiency
 
     @Column(name = "armor_class")
     private Integer armorClass; // total armor class
@@ -116,7 +116,7 @@ public class Character {
             inverseJoinColumns = @JoinColumn(name = "equipment_id")
     )
     @Builder.Default
-    private Set<Equipment> equipments = new HashSet<>(); // character equipments - can only wear (active) one piece of armor of each type
+    private Set<EquipmentEntity> equipments = new HashSet<>(); // character equipments - can only wear (active) one piece of armor of each type
 
     @ManyToMany
     @JoinTable(
@@ -127,13 +127,13 @@ public class Character {
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<Character> allies = new HashSet<>(); // characters this character considers allies
+    private Set<CharacterEntity> allies = new HashSet<>(); // characters this character considers allies
 
     @ManyToMany(mappedBy = "allies")
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<Character> alliedBy = new HashSet<>(); // characters who consider this character an ally
+    private Set<CharacterEntity> alliedBy = new HashSet<>(); // characters who consider this character an ally
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(
@@ -142,5 +142,5 @@ public class Character {
             inverseJoinColumns = @JoinColumn(name = "organization_id")
     )
     @Builder.Default
-    private Set<Organization> organizations = new HashSet<>(); // organizations this character is a member of
+    private Set<OrganizationEntity> organizations = new HashSet<>(); // organizations this character is a member of
 }

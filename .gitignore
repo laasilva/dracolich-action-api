@@ -9,7 +9,7 @@ target/
 *flattened*.xml
 
 ### spring ###
-!**/src/main/**/application.properties
+**/src/main/**/application.properties
 
 ### STS ###
 .apt_generated

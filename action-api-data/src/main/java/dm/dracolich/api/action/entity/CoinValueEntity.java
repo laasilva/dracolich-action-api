@@ -18,7 +18,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CoinValue {
+public class CoinValueEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

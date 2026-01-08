@@ -16,22 +16,22 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CharacterClassAssignment {
+public class CharacterClassAssignmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @ManyToOne
     @JoinColumn(name = "character_id")
-    private Character character;
+    private CharacterEntity character;
 
     @ManyToOne
     @JoinColumn(name = "class_id")
-    private CharacterClass characterClass;
+    private CharacterClassEntity characterClass;
 
     @ManyToOne
     @JoinColumn(name = "subclass_id")
-    private Subclass subclass; // optional - chosen at specific level (usually 3)
+    private SubclassEntity subclass; // optional - chosen at specific level (usually 3)
 
     @Column(name = "level")
     private Integer level;

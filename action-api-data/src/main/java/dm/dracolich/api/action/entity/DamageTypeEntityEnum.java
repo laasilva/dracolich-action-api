@@ -13,7 +13,7 @@ import lombok.Getter;
  * </p>
  */
 @Getter
-public enum DamageType {
+public enum DamageTypeEntityEnum {
     FIRE,
     ACID,
     BLUDGEONING,

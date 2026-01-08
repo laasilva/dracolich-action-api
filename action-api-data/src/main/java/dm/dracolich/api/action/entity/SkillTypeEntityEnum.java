@@ -1,6 +1,6 @@
 package dm.dracolich.api.action.entity;
 
-public enum SkillType {
+public enum SkillTypeEntityEnum {
     ACROBATICS,
     ANIMAL_HANDLING,
     ARCANA,

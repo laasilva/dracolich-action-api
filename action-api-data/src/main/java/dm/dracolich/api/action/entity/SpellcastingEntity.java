@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Spellcasting {
+public class SpellcastingEntity {
     //only allowed for characters that have spellcasting abilities (be cantrips or casters)
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -17,11 +17,11 @@ public class Spellcasting {
 
     @OneToOne
     @JoinColumn(name = "spell_id")
-    private Spell spell;
+    private SpellEntity spell;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "spellcasting_class")
-    private SpellcastingClassType spellCastingClassType;
+    private SpellcastingClassTypeEntityEnum spellCastingClassType;
 
     @Column(name = "spellcasting_ability")
     private String spellCastingAbility; // the ability used to cast spells - intelligence, wisdom, or charisma

@@ -12,12 +12,14 @@ import lombok.*;
  * </p>
  */
 @Entity
-@Table(name = "attributes")
+@Table(name = "attributes", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "attribute_name")
+})
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Attribute {
+public class AttributeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -26,7 +28,7 @@ public class Attribute {
     private String attributeName;
 
     @Column(name = "attribute_type")
-    private AbilityType attributeType;
+    private AbilityTypeEntityEnum attributeType;
 
     @Column(name = "attribute_points")
     private Integer attributePoints; // how many points are added to the attribute

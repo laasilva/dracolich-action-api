@@ -12,7 +12,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Spell {
+public class SpellEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -27,5 +27,5 @@ public class Spell {
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "spell_damage_types", joinColumns = @JoinColumn(name = "spell_id"))
     @Column(name = "damage_type")
-    private Set<DamageType> damageTypes = new HashSet<>(); // causes these damage types
+    private Set<DamageTypeEntityEnum> damageTypes = new HashSet<>(); // causes these damage types
 }

@@ -18,7 +18,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Alignment {
+public class AlignmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

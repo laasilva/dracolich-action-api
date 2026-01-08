@@ -1,6 +1,6 @@
-package dm.dracolich.api.action.entity;
+package dm.dracolich.api.action.to;
 
-public enum AbilityTypeEntityEnum {
+public enum AbilityTypeEnum {
     STRENGTH,
     DEXTERITY,
     CONSTITUTION,

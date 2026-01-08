@@ -1,6 +1,6 @@
 package dm.dracolich.api.action.entity;
 
-public enum CharacterType {
+public enum CharacterTypeEntityEnum {
     PLAYER,
     NPC,
     ANIMAL,

@@ -15,12 +15,14 @@ import java.util.Set;
  * </p>
  */
 @Entity
-@Table(name = "races")
+@Table(name = "races", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "race_name")
+})
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Race {
+public class RaceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -35,12 +37,12 @@ public class Race {
             inverseJoinColumns = @JoinColumn(name = "attribute_id")
     )
     @Builder.Default
-    private Set<Attribute> attributes = new HashSet<>();
+    private Set<AttributeEntity> attributes = new HashSet<>();
 
 
     @OneToMany(mappedBy = "race", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
-    private Set<RaceAbilityAssignment> raceAbilities = new HashSet<>();
+    private Set<RaceAbilityAssignmentEntity> raceAbilities = new HashSet<>();
 
     @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean custom;

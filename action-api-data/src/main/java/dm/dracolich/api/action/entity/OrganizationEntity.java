@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Organization {
+public class OrganizationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

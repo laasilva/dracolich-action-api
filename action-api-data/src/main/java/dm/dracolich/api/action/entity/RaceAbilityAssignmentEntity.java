@@ -10,14 +10,14 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RaceAbilityAssignment {
+public class RaceAbilityAssignmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ability_type", nullable = false)
-    private AbilityType abilityType;
+    private AbilityTypeEntityEnum abilityType;
 
     @Column(name = "bonus_points", nullable = false)
     private Integer bonusPoints;
@@ -26,5 +26,5 @@ public class RaceAbilityAssignment {
     @JoinColumn(name = "race_id", nullable = false)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Race race;
+    private RaceEntity race;
 }

@@ -21,7 +21,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Equipment {
+public class EquipmentEntity {
     /**
      * wearable items - armor, weapons, etc.
      * consumable items - potions, scrolls, etc.
@@ -39,16 +39,16 @@ public class Equipment {
     private String equipmentType;
 
     @Column(name = "armor_type")
-    private ArmorType armorType;
+    private ArmorTypeEntityEnum armorType;
 
     @Column(name = "ability_type")
-    private AbilityType abilityType;
+    private AbilityTypeEntityEnum abilityType;
 
     @Column(name = "ability_bonus")
     private Integer abilityBonus;
 
     @Column(name = "skill_type")
-    private SkillType skillType;
+    private SkillTypeEntityEnum skillType;
 
     @Column(name = "skill_bonus")
     private Integer skillBonus;
@@ -61,25 +61,25 @@ public class Equipment {
 
     @OneToOne
     @JoinColumn(name = "coin_value_id")
-    private CoinValue coinValue;
+    private CoinValueEntity coinValue;
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "equipment_damage_types", joinColumns = @JoinColumn(name = "equipment_id"))
     @Column(name = "damage_type")
-    private Set<DamageType> damageTypes = new HashSet<>(); // causes these damage types
+    private Set<DamageTypeEntityEnum> damageTypes = new HashSet<>(); // causes these damage types
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "equipment_damage_advantages", joinColumns = @JoinColumn(name = "equipment_id"))
     @Column(name = "damage_type")
-    private Set<DamageType> damageAdvantages = new HashSet<>(); // has advantage against these damage type
+    private Set<DamageTypeEntityEnum> damageAdvantages = new HashSet<>(); // has advantage against these damage type
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "equipment_damage_disadvantages", joinColumns = @JoinColumn(name = "equipment_id"))
     @Column(name = "damage_type")
-    private Set<DamageType> damageDisadvantages = new HashSet<>(); // has disadvantage against these damage type
+    private Set<DamageTypeEntityEnum> damageDisadvantages = new HashSet<>(); // has disadvantage against these damage type
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(
@@ -88,5 +88,5 @@ public class Equipment {
             inverseJoinColumns = @JoinColumn(name = "attribute_id")
     )
     @Builder.Default
-    private Set<Attribute> attributes = new HashSet<>();
+    private Set<AttributeEntity> attributes = new HashSet<>();
 }

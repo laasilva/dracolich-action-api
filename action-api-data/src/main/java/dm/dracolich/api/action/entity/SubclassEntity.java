@@ -23,7 +23,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Subclass {
+public class SubclassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -36,7 +36,7 @@ public class Subclass {
 
     @ManyToOne
     @JoinColumn(name = "class_id")
-    private CharacterClass characterClass;
+    private CharacterClassEntity characterClass;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(
@@ -45,7 +45,7 @@ public class Subclass {
             inverseJoinColumns = @JoinColumn(name = "attribute_id")
     )
     @Builder.Default
-    private Set<Attribute> attributes = new HashSet<>();
+    private Set<AttributeEntity> attributes = new HashSet<>();
 
     @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean custom;
