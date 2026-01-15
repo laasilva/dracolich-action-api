@@ -21,6 +21,7 @@
         <module>action-api-web</module>
         <module>action-api-data</module>
         <module>action-api-core</module>
+        <module>action-api-dto</module>
     </modules>
 
     <distributionManagement>

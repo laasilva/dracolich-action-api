@@ -13,7 +13,9 @@ import lombok.*;
  * </p>
  */
 @Entity
-@Table(name = "alignments")
+@Table(name = "alignments", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "alignment_name")
+})
 @Data
 @Builder
 @AllArgsConstructor
@@ -23,7 +25,7 @@ public class AlignmentEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "alignment_name")
+    @Column(name = "alignment_name", unique = true)
     private String alignmentName;
 
     @Column(name = "alignment_description")

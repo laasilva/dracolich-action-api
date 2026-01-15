@@ -743,3 +743,4 @@ INSERT INTO alignments (id, alignment_name, alignment_description) VALUES
     (gen_random_uuid(), 'Lawful Evil', 'Believes in taking what they want within the limits of the law or a personal code.'),
     (gen_random_uuid(), 'Neutral Evil', 'Believes in taking what they want and are untroubled by who they hurt or which laws they break.'),
     (gen_random_uuid(), 'Chaotic Evil', 'Believes in arbitrary violence, spurred by hatred, bloodlust or a desire for vengeance.')
+ON CONFLICT (alignment_name) DO NOTHING;
