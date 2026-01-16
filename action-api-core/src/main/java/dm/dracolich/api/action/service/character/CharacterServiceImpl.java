@@ -15,7 +15,6 @@ public class CharacterServiceImpl implements CharacterService {
     public ServiceResponse<CharacterDTO> createCharacter(CreateCharacterDTO request) {
         CharacterDTO character = null;
 
-        return new ServiceResponse<>(false, null, List.of(new ApiError(ErrorCodes.DMD001)));
-//        return ServiceResponse.of(character);
+        return null;
     }
 }
