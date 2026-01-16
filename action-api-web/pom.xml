@@ -24,6 +24,11 @@
             <artifactId>action-api-core</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>dm.dracolich</groupId>
+            <artifactId>action-api-dto</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 
     <build>
