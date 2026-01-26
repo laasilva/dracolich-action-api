@@ -39,11 +39,11 @@ public class RaceEntity {
     @Builder.Default
     private Set<AttributeEntity> attributes = new HashSet<>();
 
-
     @OneToMany(mappedBy = "race", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private Set<RaceAbilityAssignmentEntity> raceAbilities = new HashSet<>();
 
     @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
-    private Boolean custom;
+    @Builder.Default
+    private Boolean custom = false;
 }

@@ -10,7 +10,9 @@ public enum ErrorCodes {
     DMD004("DMD004", "Level not allowed for this operation. Character level={%s}, allowed levels=[%s]."),
     DMD005("DMD005", "Only one class can be added by level. Character level={%s}, allowed classes=[%s]."),
     DMD006("DMD006", "{%s} is not an allowed value for [%s]."),
-    DMD007("DMD007", "Total class levels must equal character level. Total class levels={%s}, character level={%s}.");
+    DMD007("DMD007", "Total class levels must equal character level. Total class levels={%s}, character level={%s}."),
+    DMD008("DMD008", "Total {%s} count must be {%s}."),
+    DMD009("DMD009", "{%s} [%s]={%s} not found.");
 
     private final String code;
     private final String message;

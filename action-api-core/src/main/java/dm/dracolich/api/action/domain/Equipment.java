@@ -6,7 +6,9 @@ import dm.dracolich.api.action.enums.DamageTypeEnum;
 import dm.dracolich.api.action.enums.SkillTypeEnum;
 import lombok.*;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -23,14 +25,15 @@ public class Equipment {
     private SkillTypeEnum skillType;
     private Integer skillBonus;
     private String equipmentDescription;
-    private Boolean active;
+    @Builder.Default
+    private Boolean active = false;
     private CoinValue coinValue;
     @Builder.Default
-    private Set<DamageTypeEnum> damageTypes = new HashSet<>();
+    private Map<DamageTypeEnum, Integer> damageTypes = new HashMap<>();
     @Builder.Default
-    private Set<DamageTypeEnum> damageAdvantages = new HashSet<>();
+    private Map<DamageTypeEnum, Integer> damageAdvantages = new HashMap<>();
     @Builder.Default
-    private Set<DamageTypeEnum> damageDisadvantages = new HashSet<>();
+    private Map<DamageTypeEnum, Integer> damageDisadvantages = new HashMap<>(); // add value
     @Builder.Default
     private Set<Attribute> attributes = new HashSet<>();
 }

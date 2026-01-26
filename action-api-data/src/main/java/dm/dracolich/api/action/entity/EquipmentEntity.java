@@ -3,7 +3,9 @@ package dm.dracolich.api.action.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -67,19 +69,19 @@ public class EquipmentEntity {
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "equipment_damage_types", joinColumns = @JoinColumn(name = "equipment_id"))
     @Column(name = "damage_type")
-    private Set<DamageTypeEntityEnum> damageTypes = new HashSet<>(); // causes these damage types
+    private Map<DamageTypeEntityEnum, Integer> damageTypes = new HashMap<>(); // causes these damage types
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "equipment_damage_advantages", joinColumns = @JoinColumn(name = "equipment_id"))
     @Column(name = "damage_type")
-    private Set<DamageTypeEntityEnum> damageAdvantages = new HashSet<>(); // has advantage against these damage type
+    private Map<DamageTypeEntityEnum, Integer> damageAdvantages = new HashMap<>(); // has advantage against these damage type
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "equipment_damage_disadvantages", joinColumns = @JoinColumn(name = "equipment_id"))
     @Column(name = "damage_type")
-    private Set<DamageTypeEntityEnum> damageDisadvantages = new HashSet<>(); // has disadvantage against these damage type
+    private Map<DamageTypeEntityEnum, Integer> damageDisadvantages = new HashMap<>(); // has disadvantage against these damage type
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(

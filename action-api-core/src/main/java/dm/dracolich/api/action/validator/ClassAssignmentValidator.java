@@ -19,8 +19,7 @@ public class ClassAssignmentValidator {
         // class assignments cannot be null or empty
         if(classAssignments == null || classAssignments.isEmpty()) {
             errors.add(DmdError.build(DMD003.getCode(), DMD003.format("classAssignments")));
-
-            return;
+            return ;
         }
 
         classAssignments.stream()
@@ -52,12 +51,13 @@ public class ClassAssignmentValidator {
             // subclass cannot be null
             if(classAssignment.getSubclass() == null) {
                 errors.add(DmdError.build(DMD003.getCode(), DMD003.format("subclass")));
-            } else {
-                // subclass cannot be different from subclass values present in the database
-                if(!subclassRepository.existsByName(classAssignment.getSubclass().getName()))
-                    errors.add(DmdError.build(DMD006.getCode(),
-                            DMD006.format(classAssignment.getSubclass().getName(), "subclass")));
+                return ;
             }
+
+            // subclass cannot be different from subclass values present in the database
+            if(!subclassRepository.existsByName(classAssignment.getSubclass().getName()))
+                errors.add(DmdError.build(DMD006.getCode(),
+                        DMD006.format(classAssignment.getSubclass().getName(), "subclass")));
 
             // if class level is null, default to 1
             if(classAssignment.getLevel() == null)

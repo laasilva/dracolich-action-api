@@ -50,6 +50,7 @@ public class CharacterClassEntity {
     private DiceTypeEntityEnum hitDice; // dice to be rolled for hit points
 
     @Column(name = "custom", columnDefinition = "BOOLEAN DEFAULT FALSE")
-    private Boolean custom;
+    @Builder.Default
+    private Boolean custom = false;
 
 }

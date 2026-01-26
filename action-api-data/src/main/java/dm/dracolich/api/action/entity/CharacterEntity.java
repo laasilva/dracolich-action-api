@@ -28,10 +28,12 @@ public class CharacterEntity {
     private String name;
 
     @Column(name = "character_type")
-    private CharacterTypeEntityEnum characterType;
+    @Builder.Default
+    private CharacterTypeEntityEnum characterType = CharacterTypeEntityEnum.PLAYER;
 
     @Column(name = "level")
-    private Integer level; // current character level
+    @Builder.Default
+    private Integer level = 1; // current character level
 
     @OneToMany(mappedBy = "character", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
@@ -86,13 +88,16 @@ public class CharacterEntity {
      * if 3 failures, character DEATH is permanent!
      */
     @Column(name = "death_saves_successes")
-    private Integer deathSavesSuccesses;
+    @Builder.Default
+    private Integer deathSavesSuccesses = 0;
 
     @Column(name = "death_saves_failures")
-    private Integer deathSavesFailures;
+    @Builder.Default
+    private Integer deathSavesFailures = 0;
 
     @Column(name = "inspiration")
-    private Boolean inspiration; // can be used for advantage rolls or give it to other characters
+    @Builder.Default
+    private Boolean inspiration = false; // can be used for advantage rolls or give it to other characters
 
     @Column(name = "armor_proficiency")
     private ArmorTypeEntityEnum armorProficiency; // armor proficiency
